@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 // Route::get('/customer','PagesController@showCustomer');
 Route::get('/customer','PagesController@listCustomer');
+Route::get('/student','StudentsController@showStudent');
+Route::get('/students','StudentsController@getStudent');
+Route::get('student/{name}','StudentsController@searchStudent');
+Route::get('/subject','SubjectsController@showSubject')-> name("subject");
 Route::get('/our_action','PagesController@action') -> name("our_action");
 Route::get('/about_us','PagesController@about') -> name("about_us");
 Route::get('/join_us', 'PagesController@join') -> name("join_us");
