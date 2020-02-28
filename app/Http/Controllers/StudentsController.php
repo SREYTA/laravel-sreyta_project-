@@ -30,5 +30,41 @@ class StudentsController extends Controller
         $students = Student::all();
         return view('pages.students',compact('students'));
     }
+
+    public function formStudent(){
+        return view('pages.studentForm');
+    }
+    public function insertStudent(Request $request){
+        $request -> validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+        ]);
+
+        $student = new\App\Student;
+        $student -> Firstname = $request -> get('firstname');
+        $student -> Lastname = $request -> input('lastname');
+        $student -> Age = $request -> age;
+        $student -> save();
+        return redirect('students');
+    }
+    public function updateStudent($id, Request $request){
+        $student = Student::find($id);
+        $student -> Firstname = $request -> firstname;
+        $student -> Lastname = $request -> lastname;
+        $student -> Age = $request -> age;
+        $student -> save();
+        return redirect('students');
+    }
+    public function showform($id){
+        $student = Student::find($id);
+        return view('pages.editform', compact('student'));
+    }
+
+    public function delete($id) {
+        $student = Student::find($id);
+        $student -> delete();
+        return redirect('students');
+    }
+
     
 }

@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->String('Firstname');
             $table->String('Lastname');
-            $table->integer('Age'); // smallInteger
+            $table->integer('Age') -> nullable; // smallInteger
             $table->timestamps();
         });
     }
