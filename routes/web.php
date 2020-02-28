@@ -63,6 +63,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/addProfile', 'UserController@addProfiles');
 Route::get('/showProfile', 'UserController@showProfile')->name('showProfile');
+Route::get('showFormProfile/{id}', 'UserController@showform')->name('showform');
 Route::get('/editProfile', 'UserController@updateProfile');
 Route::get('/showName', 'ProfileController@showUserName');
 

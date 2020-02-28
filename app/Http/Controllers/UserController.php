@@ -14,13 +14,6 @@ class UserController extends Controller
 
     // add 2 profile 
     public function addProfiles(){
-        // $user = User::find(1);
-        // $user->profile() -> create(){
-        //     'phone' => '012 000 999';
-        //     'address' => 'Takeo';
-        // };
-
-
 
         $user = User::find(1);
         $profile = new Profile();
@@ -44,12 +37,20 @@ class UserController extends Controller
         $user = User::all();
         return view('profiles.profile', compact('user'));
         
+    }   
+    public function showform($id){
+        $user = User::find($id);
+
+        return view('profiles.formProfile', compact('user'));
     }
 
-    public function updateProfile(){
-        $user  = User::all();
-        dd($user);
-        // $user->profile()->Updata(['phone'=>'010999888']);
-    }
+    // public function updateProfile($id, Request $request){
+    //     $user  = User::find($id);
+    //     $user->name = $request->name;
+    //     $user->email = $request->email;
+    //     $user->users_id = $user->id;
+    //     $user->save();
+    //     return redirect('showProfile');
+    // }
     
 }

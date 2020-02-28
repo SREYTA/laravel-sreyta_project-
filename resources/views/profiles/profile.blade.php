@@ -104,7 +104,7 @@
                         <td>{{ $item->profile->phone}}</td>
                         <td>{{ $item->profile->address }}</td>
                         <td>
-                            <a href="editProfile">Edit</a> |
+                            <a href="{{route('showform',$item->id)}}">Edit</a> |
                             <a href="">Delete</a>
                         </td>
                     </tr>
